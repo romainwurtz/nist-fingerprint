@@ -1,0 +1,72 @@
+{
+  "name": "nist-fingerprint",
+  "version": "1.0.0",
+  "description": "Parse, convert, and export fingerprint images from ANSI/NIST-ITL (EFT) files — pure-JavaScript WSQ decoder for Node.js",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
+  },
+  "bin": {
+    "nist-fingerprint": "./src/cli.js"
+  },
+  "files": [
+    "src/"
+  ],
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src/ test/",
+    "release": "f() { git tag -f \"v$1\" && git push origin \"v$1\" --force && gh release create \"v$1\" --generate-notes; }; f"
+  },
+  "keywords": [
+    "eft",
+    "ansi-nist",
+    "fingerprint",
+    "fingerprint-parser",
+    "biometric",
+    "biometrics",
+    "wsq",
+    "wsq-decoder",
+    "wsq-to-png",
+    "nist-itl",
+    "ebts",
+    "forensics",
+    "wavelet-scalar-quantization",
+    "jnbis"
+  ],
+  "author": "Romain Wurtz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romainwurtz/nist-fingerprint.git"
+  },
+  "bugs": {
+    "url": "https://github.com/romainwurtz/nist-fingerprint/issues"
+  },
+  "homepage": "https://github.com/romainwurtz/nist-fingerprint#readme",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "cli-table3": "0.6.5",
+    "commander": "14.0.3",
+    "picocolors": "1.1.1",
+    "sharp": "0.34.5",
+    "terminal-image": "4.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@vitest/coverage-v8": "3.1.1",
+    "eslint": "10.0.1",
+    "vitest": "3.1.1"
+  }
+}
